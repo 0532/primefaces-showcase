@@ -1,0 +1,112 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../templates/ui.xhtml">
+
+	<ui:define name="content">
+
+		<h1 class="title ui-widget-header ui-corner-all">Messages</h1>
+		<div class="entry">
+			<p>Messages and Message components are highly customizable and pre-skinned versions of standard message components.</p>
+					
+			<h3>Messages</h3>	
+			<h:form>
+                <p:messages showDetail="true" autoUpdate="true"/>
+				
+				<p:commandButton value="Info" actionListener="#{messagesController.addInfo}"/>
+				<p:commandButton value="Warn" actionListener="#{messagesController.addWarn}"/>
+				<p:commandButton value="Error" actionListener="#{messagesController.addError}"/>
+				<p:commandButton value="Fatal" actionListener="#{messagesController.addFatal}"/>
+			</h:form>
+			
+			<h3>Message</h3>
+			<h:form>
+				<h:panelGrid id="grid" columns="3">
+					<h:outputText value="Default: *" />
+					<p:inputText id="default" required="true" />
+					<p:message for="default" />
+
+                    <h:outputText value="Text Only: *" />
+					<p:inputText id="textOnly" required="true" />
+                    <p:message for="textOnly" display="text" />
+
+                    <h:outputText value="Icon Only: *" />
+					<p:inputText id="iconOnly" required="true" />
+					<p:message for="iconOnly" display="icon" />
+				</h:panelGrid>
+				
+				<p:commandButton value="Submit" update="grid"/>
+			</h:form>
+
+			<h3>Source</h3>
+            <p:tabView>
+                <p:tab title="messages.xhtml">
+<pre name="code" class="xml">
+&lt;h3&gt;Messages&lt;/h3&gt;
+&lt;h:form&gt;
+    &lt;p:messages showDetail="true" autoUpdate="true"/&gt;
+
+    &lt;p:commandButton value="Info" actionListener="\#{messagesController.addInfo}"/&gt;
+    &lt;p:commandButton value="Warn" actionListener="\#{messagesController.addWarn}"/&gt;
+    &lt;p:commandButton value="Error" actionListener="\#{messagesController.addError}"/&gt;
+    &lt;p:commandButton value="Fatal" actionListener="\#{messagesController.addFatal}"/&gt;
+&lt;/h:form&gt;
+
+&lt;h3&gt;Message&lt;/h3&gt;
+&lt;h:form&gt;
+    &lt;h:panelGrid id="grid" columns="3"&gt;
+        &lt;h:outputText value="Default: *" /&gt;
+        &lt;p:inputText id="default" required="true" /&gt;
+        &lt;p:message for="default" /&gt;
+
+        &lt;h:outputText value="Text Only: *" /&gt;
+        &lt;p:inputText id="textOnly" required="true" /&gt;
+        &lt;p:message for="textOnly" display="text" /&gt;
+
+        &lt;h:outputText value="Icon Only: *" /&gt;
+        &lt;p:inputText id="iconOnly" required="true" /&gt;
+        &lt;p:message for="iconOnly" display="icon" /&gt;
+    &lt;/h:panelGrid&gt;
+
+    &lt;p:commandButton value="Submit" update="grid"/&gt;
+&lt;/h:form&gt;
+			</pre>
+                </p:tab>
+
+                <p:tab title="MessagesController.java">
+<pre name="code" class="java">
+package org.primefaces.examples.view;
+
+import javax.faces.event.ActionEvent;
+import javax.faces.context.FacesContext;
+import javax.faces.application.FacesContext;
+
+public class MessagesController {
+
+	public void addInfo(ActionEvent actionEvent) {
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Sample info message", "PrimeFaces rocks!"));
+	}
+
+	public void addWarn(ActionEvent actionEvent) {
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Sample warn message", "Watch out for PrimeFaces!"));
+	}
+
+	public void addError(ActionEvent actionEvent) {
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Sample error message", "PrimeFaces makes no mistakes"));
+	}
+
+	public void addFatal(ActionEvent actionEvent) {
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL,"Sample fatal message", "Fatal Error in System"));
+	}
+}
+			</pre>
+                </p:tab>
+            </p:tabView>
+
+			
+		</div>
+
+	</ui:define>
+</ui:composition>

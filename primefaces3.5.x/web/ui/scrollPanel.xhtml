@@ -1,0 +1,81 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../templates/ui.xhtml">
+
+	<ui:define name="content">
+
+
+		<h1 class="title ui-widget-header ui-corner-all">ScrollPanel</h1>
+		<div class="entry">
+			<p>ScrollPanel is used to display overflowed content with theme aware scrollbars instead of browser scrollbars.</p>
+
+			<h:form id="form">
+                <h3>Basic ScrollPanel</h3>
+                <p:scrollPanel id="basicScroll" style="width:250px;height:200px">
+                    <p:dataGrid var="car" value="#{tableBean.carsSmall}" columns="3">
+                        <p:panel header="#{car.model}" style="text-align:center">
+                            <h:panelGrid columns="1" style="width:100%">
+                                <h:outputText value="#{car.model}" />
+                                <h:outputText value="#{car.manufacturer}" />
+                                <h:outputText value="#{car.year}" />
+                                <h:outputText value="#{car.color}" />
+                            </h:panelGrid>
+                        </p:panel>
+                    </p:dataGrid>
+                </p:scrollPanel>
+                
+                <h3>Native ScrollPanel</h3>
+                <p:scrollPanel id="nativeScroll" mode="native" style="width:250px;height:200px">
+                    <p:dataGrid var="car" value="#{tableBean.carsSmall}" columns="3">
+                        <p:panel header="#{car.model}" style="text-align:center">
+                            <h:panelGrid columns="1" style="width:100%">
+                                <h:outputText value="#{car.model}" />
+                                <h:outputText value="#{car.manufacturer}" />
+                                <h:outputText value="#{car.year}" />
+                                <h:outputText value="#{car.color}" />
+                            </h:panelGrid>
+                        </p:panel>
+                    </p:dataGrid>
+                </p:scrollPanel>
+			</h:form>
+
+			<h3>Source</h3>
+			<p:tabView>
+				<p:tab title="scrollPanel.xhtml">
+					<pre name="code" class="xml">
+&lt;h3&gt;Default ScrollPanel&lt;/h3&gt;
+&lt;p:scrollPanel style="width:250px;height:200px"&gt;
+    &lt;p:dataGrid var="car" value="\#{tableBean.carsSmall}" columns="3"&gt;
+        &lt;p:panel header="\#{car.model}" style="text-align:center"&gt;
+            &lt;h:panelGrid columns="1" style="width:100%"&gt;
+                &lt;h:outputText value="\#{car.model}" /&gt;
+                &lt;h:outputText value="\#{car.manufacturer}" /&gt;
+                &lt;h:outputText value="\#{car.year}" /&gt;
+                &lt;h:outputText value="\#{car.color}" /&gt;
+            &lt;/h:panelGrid&gt;
+        &lt;/p:panel&gt;
+    &lt;/p:dataGrid&gt;
+&lt;/p:scrollPanel&gt;
+
+&lt;h3&gt;Native ScrollPanel&lt;/h3&gt;
+&lt;p:scrollPanel style="width:250px;height:200px" scrollMode="native"&gt;
+    &lt;p:dataGrid var="car" value="\#{tableBean.carsSmall}" columns="3"&gt;
+        &lt;p:panel header="\#{car.model}" style="text-align:center"&gt;
+            &lt;h:panelGrid columns="1" style="width:100%"&gt;
+                &lt;h:outputText value="\#{car.model}" /&gt;
+                &lt;h:outputText value="\#{car.manufacturer}" /&gt;
+                &lt;h:outputText value="\#{car.year}" /&gt;
+                &lt;h:outputText value="\#{car.color}" /&gt;
+            &lt;/h:panelGrid&gt;
+        &lt;/p:panel&gt;
+    &lt;/p:dataGrid&gt;
+&lt;/p:scrollPanel&gt;
+					</pre>
+				</p:tab>
+			</p:tabView>
+		</div>
+	</ui:define>
+</ui:composition>

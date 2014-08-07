@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+
+	<h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+            <title>PrimeFaces - ShowCase</title>
+        </f:facet>
+        
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/default.css" />
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/syntaxhighlighter/syntaxhighlighter.css" />
+
+		<ui:insert name="head"></ui:insert>
+	</h:head>
+
+	<h:body>
+
+		<div class="ui-widget ui-widget-header">
+			<div id="logo">
+				<h1>PRIMEFACES</h1>
+			</div>
+		</div>
+
+		<div id="menu" class="ui-widget ui-widget-content ui-corner-all">
+			<ul id="main">
+				<li class="current_page_item"><a href="#{request.contextPath}/ui/home.jsf" style="background:url('../design/ui.png') no-repeat center left;">PrimeUI</a></li>
+				<li><a href="#{request.contextPath}/mobile/index.jsf" style="background:url('../design/iphone.png') no-repeat center left;">PrimeMobile</a></li>
+                <li><a href="#{request.contextPath}/push/index.jsf" style="background:url('../design/push.png') no-repeat center left">PrimePush</a></li>
+			</ul>
+		</div>
+
+		<div id="wrapper">
+
+			<div id="page">
+				<div id="sidebar1" class="ui-widget-content ui-corner-all ui-helper-clearfix sidebar">
+					<ul>
+						<li>
+							<table>
+								<tr>
+									<td colspan="2" align="left" style="padding:8px;">
+										<h:form>
+                                            <ui:include src="themeMenu.xhtml" />
+										</h:form>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<ul>
+                                            <li><a href="#{request.contextPath}/ui/macosx.jsf" >MOCK OS X</a></li>
+											<li><a href="#{request.contextPath}/ui/ajaxHome.jsf">Ajax Engine</a></li>
+											<li><a href="#{request.contextPath}/ui/ajaxPollHome.jsf">Ajax Poll</a></li>
+                                            <li><a href="#{request.contextPath}/ui/ajaxStatusHome.jsf">Ajax Status</a></li>
+											<li><a href="#{request.contextPath}/ui/accordionPanelHome.jsf">Accordion</a></li>
+											<li><a href="#{request.contextPath}/ui/autocompleteHome.jsf" class="new">AutoComplete</a></li>
+											<li><a href="#{request.contextPath}/ui/breadCrumb.jsf">BreadCrumb</a></li>
+                                            <li><a href="#{request.contextPath}/ui/button.jsf">Button</a></li>
+											<li><a href="#{request.contextPath}/ui/calendarHome.jsf">Calendar</a></li>
+											<li><a href="#{request.contextPath}/ui/captchaHome.jsf">Captcha</a></li>
+											<li><a href="#{request.contextPath}/ui/carouselHome.jsf">Carousel</a></li>
+											<li><a href="#{request.contextPath}/ui/chartsHome.jsf">Charts</a></li>
+											<li><a href="#{request.contextPath}/ui/commandButton.jsf">CommandButton</a></li>
+											<li><a href="#{request.contextPath}/ui/commandLink.jsf">CommandLink</a></li>
+											<li><a href="#{request.contextPath}/ui/contextMenuHome.jsf">ContextMenu</a></li>
+											<li><a href="#{request.contextPath}/ui/collector.jsf">Collector</a></li>
+											<li><a href="#{request.contextPath}/ui/colorPicker.jsf">Color Picker</a></li>
+											<li><a href="#{request.contextPath}/ui/confirmDialog.jsf">ConfirmDialog</a></li>
+											<li><a href="#{request.contextPath}/ui/dashboard.jsf">Dashboard</a></li>
+											<li><a href="#{request.contextPath}/ui/exporterHome.jsf">Data Exporter</a></li>
+											<li><a href="#{request.contextPath}/ui/datagrid.jsf">DataGrid</a></li>
+											<li><a href="#{request.contextPath}/ui/dataListHome.jsf">DataList</a></li>
+											<li><a href="#{request.contextPath}/ui/datatableHome.jsf">DataTable</a></li>
+											<li><a href="#{request.contextPath}/ui/dialogHome.jsf">Dialog</a></li>
+											<li><a href="#{request.contextPath}/ui/dock.jsf">Dock</a></li>
+                                            <li><a href="#{request.contextPath}/ui/dragdropHome.jsf">DragDrop</a></li>
+											<li><a href="#{request.contextPath}/ui/dynamicImage.jsf">Dyna Image</a></li>
+											<li><a href="#{request.contextPath}/ui/editor.jsf">Editor</a></li>
+											<li><a href="#{request.contextPath}/ui/effectsHome.jsf">Effects</a></li>
+                                            <li><a href="#{request.contextPath}/ui/feedReader.jsf">FeedReader</a></li>
+											<li><a href="#{request.contextPath}/ui/fileUploadHome.jsf">FileUpload</a></li>
+											<li><a href="#{request.contextPath}/ui/fileDownload.jsf">FileDownload</a></li>
+                                            <li><a href="#{request.contextPath}/ui/fieldset.jsf">Fieldset</a></li>
+											<li><a href="#{request.contextPath}/ui/focus.jsf">Focus</a></li>
+                                            <li><a href="#{request.contextPath}/ui/galleriaHome.jsf">Galleria</a></li>
+											<li><a href="#{request.contextPath}/ui/gmapHome.jsf">Google Maps</a></li>
+											<li><a href="#{request.contextPath}/ui/growl.jsf">Growl</a></li>
+                                            <li><a href="#{request.contextPath}/ui/hotkey.jsf">HotKey</a></li>
+                                            <li><a href="#{request.contextPath}/ui/idlemonitorHome.jsf">IdleMonitor</a></li>
+                                            <li><a href="#{request.contextPath}/ui/imageCompare.jsf">ImageCompare</a></li>
+                                            <li><a href="#{request.contextPath}/ui/imageCropper.jsf">ImageCropper</a></li>
+                                            <li><a href="#{request.contextPath}/ui/imageSwitch.jsf">ImageSwitch</a></li>
+                                            <li><a href="#{request.contextPath}/ui/inplace.jsf">Inplace</a></li>
+                                            <li><a href="#{request.contextPath}/ui/inputText.jsf">InputText</a></li>
+                                            <li><a href="#{request.contextPath}/ui/inputTextarea.jsf">InputTextarea</a></li>
+                                            <li><a href="#{request.contextPath}/ui/keyboard.jsf">Keyboard</a></li>
+                                            <li><a href="#{request.contextPath}/ui/layoutHome.jsf">Layout</a></li>
+                                            <li><a href="#{request.contextPath}/ui/lightboxHome.jsf">LightBox</a></li>
+                                            <li><a href="#{request.contextPath}/ui/log.jsf">Log</a></li>
+											<li><a href="#{request.contextPath}/ui/inputMask.jsf">Masked Input</a></li>
+											
+										</ul>
+									</td>
+									<td>
+										<ul>
+											<li><a href="#{request.contextPath}/ui/media.jsf">Media</a></li>
+											<li><a href="#{request.contextPath}/ui/menu.jsf">Menu</a></li>
+											<li><a href="#{request.contextPath}/ui/menubar.jsf">Menubar</a></li>
+											<li><a href="#{request.contextPath}/ui/menubutton.jsf">MenuButton</a></li>
+											<li><a href="#{request.contextPath}/ui/messages.jsf">Messages</a></li>
+											<li><a href="#{request.contextPath}/ui/notificationBar.jsf">NotificationBar</a></li>
+                                            <li><a href="#{request.contextPath}/ui/orderList.jsf">OrderList</a></li>
+											<li><a href="#{request.contextPath}/ui/outputPanel.jsf">OutputPanel</a></li>
+                                            <li><a href="#{request.contextPath}/ui/overlayPanel.jsf" class="new">OverlayPanel</a></li>
+											<li><a href="#{request.contextPath}/ui/panel.jsf">Panel</a></li>
+											<li><a href="#{request.contextPath}/ui/password.jsf">Password</a></li>
+                                            <li><a href="#{request.contextPath}/ui/photoCam.jsf" class="new">PhotoCam</a></li>
+											<li><a href="#{request.contextPath}/ui/picklist.jsf">PickList</a></li>
+											<li><a href="#{request.contextPath}/ui/printer.jsf">Printer</a></li>
+											<li><a href="#{request.contextPath}/ui/progressBar.jsf">ProgressBar</a></li>
+                                            <li><a href="#{request.contextPath}/push/index.jsf">Push</a></li>
+											<li><a href="#{request.contextPath}/ui/requestContext.jsf">RequestContext</a></li>
+											<li><a href="#{request.contextPath}/ui/resizableHome.jsf">Resizable</a></li>
+											<li><a href="#{request.contextPath}/ui/remoteCommand.jsf">RemoteCommand</a></li>
+                                            <li><a href="#{request.contextPath}/ui/ring.jsf">Ring</a></li>
+											<li><a href="#{request.contextPath}/ui/scheduleHome.jsf">Schedule</a></li>
+                                            <li><a href="#{request.contextPath}/ui/scrollPanel.jsf">ScrollPanel</a></li>
+                                            <li><a href="#{request.contextPath}/ui/selectBooleanButton.jsf" class="new">SelectBoolButton</a></li>
+                                            <li><a href="#{request.contextPath}/ui/selectBooleanCheckbox.jsf">SelectBoolCheckbox</a></li>
+                                            <li><a href="#{request.contextPath}/ui/selectCheckboxMenu.jsf" class="new">SelectCheckboxMenu</a></li>
+                                            <li><a href="#{request.contextPath}/ui/selectManyButton.jsf" class="new">SelectManyButton</a></li>
+                                            <li><a href="#{request.contextPath}/ui/selectManyCheckbox.jsf">SelectManyCheckbox</a></li>
+                                            <li><a href="#{request.contextPath}/ui/selectOneButton.jsf" class="new">SelectOneButton</a></li>
+                                            <li><a href="#{request.contextPath}/ui/selectOneListbox.jsf">SelectOneListbox</a></li>
+                                            <li><a href="#{request.contextPath}/ui/selectOneMenu.jsf">SelectOneMenu</a></li>
+                                            <li><a href="#{request.contextPath}/ui/selectOneRadio.jsf">SelectOneRadio</a></li>
+                                            <li><a href="#{request.contextPath}/ui/selectManyMenu.jsf">SelectManyMenu</a></li>
+											<li><a href="#{request.contextPath}/ui/separator.jsf">Separator</a></li>
+                                            <li><a href="#{request.contextPath}/ui/sheet.jsf">Sheet</a></li>
+											<li><a href="#{request.contextPath}/ui/slider.jsf">Slider</a></li>
+                                            <li><a href="#{request.contextPath}/ui/spacer.jsf">Spacer</a></li>
+											<li><a href="#{request.contextPath}/ui/spinner.jsf">Spinner</a></li>
+											<li><a href="#{request.contextPath}/ui/stack.jsf">Stack</a></li>
+											<li><a href="#{request.contextPath}/ui/rating.jsf">Star Rating</a></li>
+											<li><a href="#{request.contextPath}/ui/tabviewHome.jsf" class="new">TabView</a></li>
+                                            <li><a href="#{request.contextPath}/ui/tagCloud.jsf">TagCloud</a></li>
+											<li><a href="#{request.contextPath}/ui/terminalHome.jsf">Terminal</a></li>
+											<li><a href="#{request.contextPath}/ui/themeswitcher.jsf">Themeswitcher</a></li>
+                                            <li><a href="#{request.contextPath}/ui/timeline.jsf">Timeline</a></li>
+                                            <li><a href="#{request.contextPath}/ui/toolbar.jsf">Toolbar</a></li>
+											<li><a href="#{request.contextPath}/ui/tooltip.jsf">Tooltip</a></li>
+											<li><a href="#{request.contextPath}/ui/treeHome.jsf">Tree</a></li>
+											<li><a href="#{request.contextPath}/ui/treeTableHome.jsf">TreeTable</a></li>
+											<li><a href="#{request.contextPath}/ui/watermark.jsf">Watermark</a></li>
+											<li><a href="#{request.contextPath}/ui/wizard.jsf">Wizard</a></li>
+										</ul>
+									</td>
+								</tr>
+							</table>
+
+						</li>
+					</ul>
+				</div>
+
+				<div id="content" class="ui-widget">
+					<div class="post">
+						<ui:insert name="content">...</ui:insert>
+					</div>
+				</div>
+
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+
+		<div id="footer" class="ui-widget ui-widget-header ui-corner-all">
+			<p class="copyright">&copy;&nbsp;&nbsp;2009-2011 &nbsp;&bull;&nbsp; <a href="http://www.prime.com.tr">Prime Teknoloji</a>.</p>
+			<p style="float:right">Running #{build.primefacesVersion} on #{build.jsfVersion}</p>
+		</div>
+
+        <ui:insert name="status">
+            <p:ajaxStatus style="width:32px;height:32px;display:block;position:fixed;right:0;top:0;">
+                <f:facet name="start">
+                    <p:graphicImage value="/images/loading.gif" />
+                </f:facet>
+
+                <f:facet name="complete">
+                    <h:outputText value="" />
+                </f:facet>
+            </p:ajaxStatus>
+        </ui:insert>
+
+	</h:body>
+
+	<ui:insert name="highlight">
+		<script language="javascript" src="#{request.contextPath}/syntaxhighlighter/scripts/sh.js"></script>
+		<script language="javascript">
+			dp.SyntaxHighlighter.ClipboardSwf = '#{request.contextPath}/syntaxhighlighter/scripts/clipboard.swf';
+			dp.SyntaxHighlighter.HighlightAll('code');
+		</script>
+	</ui:insert>
+
+</f:view>
+</html>

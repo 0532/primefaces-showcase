@@ -1,0 +1,337 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile"
+	contentType="text/html">
+
+    <pm:page title="Components">
+
+        <!-- Main View -->
+        <pm:view id="main">
+            <pm:header title="Mobile" swatch="b">
+            </pm:header>
+
+            <pm:content>
+
+                <p:dataList type="inset">
+                    <f:facet name="header">Components</f:facet>
+                    <h:outputLink value="#forms">Forms</h:outputLink>
+                    <h:outputLink value="#buttons">Buttons</h:outputLink>
+                    <h:outputLink value="#lists">Lists</h:outputLink>
+                    <h:outputLink value="#navbar">NavBar</h:outputLink>
+                    <h:outputLink value="#panels">Panels</h:outputLink>
+                </p:dataList>
+
+                <p:dataList type="inset">
+                    <f:facet name="header">Framework</f:facet>
+                    <h:outputLink value="#ajaxStatus">Ajax Status</h:outputLink>
+                    <h:outputLink value="#ajaxUpdate">Ajax Updates</h:outputLink>
+                </p:dataList>
+
+            </pm:content>
+
+        </pm:view>
+
+        <!-- Forms -->
+        <pm:view id="forms">
+            <pm:header title="Forms">
+                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+            </pm:header>
+
+            <pm:content>
+
+                <p:inputText label="Input:" />
+                
+                <p:inputTextarea id="inputTextarea" label="Textarea:"/>
+                
+                <pm:field>
+                    <h:outputLabel for="selectOneMenu" value="Dropdown: "/>
+                    <h:selectOneMenu id="selectOneMenu">
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItem itemLabel="Option 1" itemValue="Option 1" />
+                        <f:selectItem itemLabel="Option 2" itemValue="Option 2" />
+                        <f:selectItem itemLabel="Option 3" itemValue="Option 3" />
+                    </h:selectOneMenu>
+                </pm:field>
+
+                <pm:inputRange id="range" minValue="0" maxValue="100" label="Range:" />
+
+                <pm:switch id="switch" onLabel="yes" offLabel="no" label="Switch:" />
+                
+                <p:selectBooleanCheckbox id="booleanCheckbox" value="false" itemLabel="I agree" label="Checkbox"/>
+               
+                <pm:field>
+                    <h:outputLabel for="checkbox" value="Checkbox: "/>
+                    <h:selectManyCheckbox id="checkbox">
+                        <f:selectItem itemLabel="Option 1" itemValue="Option 1" />
+                        <f:selectItem itemLabel="Option 2" itemValue="Option 2" />
+                        <f:selectItem itemLabel="Option 3" itemValue="Option 3" />
+                    </h:selectManyCheckbox>
+                </pm:field>
+
+                <pm:field>
+                    <h:outputLabel for="radio" value="Radio: "/>
+                    <h:selectOneRadio id="radio">
+                        <f:selectItem itemLabel="Option 1" itemValue="Option 1" />
+                        <f:selectItem itemLabel="Option 2" itemValue="Option 2" />
+                        <f:selectItem itemLabel="Option 3" itemValue="Option 3" />
+                    </h:selectOneRadio>
+                </pm:field>
+
+            </pm:content>
+
+        </pm:view>
+
+
+        <!-- Buttons -->
+        <pm:view id="buttons">
+            <pm:header title="Buttons">
+                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+            </pm:header>
+
+            <pm:content>
+
+                <h3>Basic</h3>
+                <p:commandButton value="Default" type="button"/>
+                <p:commandButton value="With Icon" type="button" icon="check"/>
+                <p:commandButton value="Icon Position" type="button" icon="refresh" iconPos="right"/>
+                <p:commandButton value="Inline" type="button" icon="delete" inline="true" />
+
+                <h3>Themes</h3>
+                <p:commandButton value="Default" type="button" swatch="a"/>
+                <p:commandButton value="With Icon" type="button" icon="check" swatch="b"/>
+                <p:commandButton value="Icon Position" type="button" icon="refresh" iconPos="right" swatch="e"/>
+
+                <h3>Grouping</h3>
+                <pm:buttonGroup>
+                    <p:commandButton value="Yes" type="button" icon="check"/>
+                    <p:commandButton value="No" type="button" icon="delete"/>
+                </pm:buttonGroup>
+                
+                <pm:buttonGroup orientation="horizontal">
+                    <p:commandButton value="Yes" type="button" icon="check" />
+                    <p:commandButton value="No" type="button" icon="delete" />
+                </pm:buttonGroup>
+
+            </pm:content>
+
+        </pm:view>
+
+        <!-- Lists -->
+        <pm:view id="lists">
+            <pm:header title="Lists">
+                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+            </pm:header>
+
+            <pm:content>
+
+                <h3>Read-Only</h3>
+                <p:dataList>
+                    <h:outputText value="Item 1" />
+                    <h:outputText value="Item 2" />
+                    <h:outputText value="Item 3" />
+                </p:dataList>
+
+                <p:spacer height="10em" />
+
+                <h3>Links</h3>
+                <p:dataList>
+                    <h:outputLink value="#main">Item 1</h:outputLink>
+                    <h:outputLink value="#main">Item 2</h:outputLink>
+                    <h:outputLink value="#main">Item 3</h:outputLink>
+                </p:dataList>
+
+                <p:spacer height="10em" />
+
+                <h3>Inset</h3>
+                <p:dataList type="inset">
+                    <h:outputLink value="#main">Item 1</h:outputLink>
+                    <h:outputLink value="#main">Item 2</h:outputLink>
+                    <h:outputLink value="#main">Item 3</h:outputLink>
+                </p:dataList>
+
+                <p:spacer height="10em" />
+
+                <h3>Custom Content</h3>
+                <p:dataList value="#{ringBean.players}" var="player">
+                    <p:graphicImage value="/images/barca/#{player.photo}" />
+                    <h3><h:outputLink value="#main">#{player.name}</h:outputLink></h3>
+                    <p>#{player.position}</p>
+                    <h:outputText styleClass="ui-li-count" value="#{player.number}" />
+                </p:dataList>
+            </pm:content>
+
+        </pm:view>
+
+        <!-- NavBar -->
+        <pm:view id="navbar">
+            <pm:header title="NavBar">
+                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+                <pm:navBar>
+                    <p:button value="Home" icon="home" href="#main?reverse=true" styleClass="ui-btn-active"/>
+                    <p:button value="Info" icon="info" href="#main?reverse=true" />
+                    <p:button value="Search" icon="search" href="#main?reverse=true" />
+                </pm:navBar>
+            </pm:header>
+
+            <pm:content>
+                <pm:navBar>
+                    <p:button value="Home" icon="home" href="#main?reverse=true" styleClass="ui-btn-active"/>
+                    <p:button value="Info" icon="info" href="#main?reverse=true" />
+                    <p:button value="Search" icon="search" href="#main?reverse=true" />
+                    <p:button value="Favs" icon="star" href="#main?reverse=true" />
+                    <p:button value="Setup" icon="gear" href="#main?reverse=true" />
+                </pm:navBar>
+            </pm:content>
+        </pm:view>
+
+        <!-- Panels -->
+        <pm:view id="panels">
+            <pm:header title="Panels">
+                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+            </pm:header>
+
+            <pm:content>
+                <h3>Panel</h3>
+                <p:panel header="Expanded">
+                    Toggle panel content
+                </p:panel>
+
+                <p:panel header="Collapsed" collapsed="true">
+                    Initially collapsed content
+                </p:panel>
+                
+                <h3>Accordion Panel</h3>
+                <p:accordionPanel>
+                    <p:tab title="Title 1">
+                        Content 1
+                    </p:tab>
+                    <p:tab title="Title 2">
+                        Content 2
+                    </p:tab>
+                    <p:tab title="Title 3">
+                        Content 3
+                    </p:tab>
+                </p:accordionPanel>
+
+                <h3>Grid Layout</h3>
+
+                <h4>2 Column</h4>
+                <h:panelGrid columns="2">
+                    <h:outputText value="Cell 1" />
+                    <h:outputText value="Cell 2" />
+                </h:panelGrid>
+
+                <h4>3 Column</h4>
+                <h:panelGrid columns="3">
+                    <p:button value="Home" icon="home" href="#main?reverse=true" />
+                    <p:button value="Info" icon="info" href="#main?reverse=true" />
+                    <p:button value="Search" icon="search" href="#main?reverse=true" />
+                </h:panelGrid>
+
+                <h4>4 Column</h4>
+                <h:panelGrid columns="4">
+                    <h:outputText value="Cell 1" />
+                    <h:outputText value="Cell 2" />
+                    <h:outputText value="Cell 3" />
+                    <h:outputText value="Cell 4" />
+
+                    <h:outputText value="Cell 5" />
+                    <h:outputText value="Cell 6" />
+                    <h:outputText value="Cell 7" />
+                    <h:outputText value="Cell 8" />
+                </h:panelGrid>
+                
+            </pm:content>
+        </pm:view>
+
+        <!-- Ajax Status 
+        <pm:view id="transitions">
+            <pm:header title="Transitions">
+                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+            </pm:header>
+
+            <pm:content>
+                There are 6 types of view transition effects.
+
+                <p:button href="#transition" value="Slide" transition="slide" />
+                <p:button href="#transition" value="Slide Up" transition="slideup" />
+                <p:button href="#transition" value="Slide Down" transition="slidedown" />
+                <p:button href="#transition" value="Pop" transition="pop" />
+                <p:button href="#transition" value="Fade" transition="fade" />
+                <p:button href="#transition" value="Flip" transition="flip" />
+
+
+            </pm:content>
+        </pm:view>-->
+
+        <pm:view id="transition">
+            <pm:header title="Transition">
+                <f:facet name="left"><p:button value="Back" icon="back" href="#transitions?reverse=true"/></f:facet>
+            </pm:header>
+
+            <pm:content>
+
+                <h1>Displayed with a Transition</h1>
+
+            </pm:content>
+        </pm:view>
+
+        <!-- Ajax Status -->
+        <pm:view id="ajaxStatus">
+            <pm:header title="Ajax Status">
+                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+            </pm:header>
+
+            <pm:content>
+                Core PrimeFaces Ajax implementation is integrated with jQuery Mobile's built-in ajax loading dialog indicator.
+
+                <h:form>
+                    
+                    <p:commandButton value="Count" actionListener="#{counterBean.increment}" update="txt_count" process="@this"/>
+                    <h3><h:outputText id="txt_count" value="Counter: #{counterBean.count}" /></h3>
+                    
+                </h:form>
+
+            </pm:content>
+        </pm:view>
+
+        <!-- Ajax Update -->
+        <pm:view id="ajaxUpdate">
+            <pm:header title="TODO">
+                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+            </pm:header>
+
+            <pm:content>
+                jQuery Mobile uses progressive enhancement on page elements to optimize them for mobile environment. This happens
+                on page load and elements lose styles/behaviors attached after an ajax update. PrimeFaces fixes this mismatch
+                by providing extensions whereas client side ajax of a JSF implementation causes various problems.
+
+                <h:form>
+
+                    <pm:field>
+                        <h:outputLabel for="txt" value="Text:" />
+                        <h:inputText id="txt" value="#{showcaseView.text}" />
+                    </pm:field>
+
+                    <h:panelGrid columns="2">
+                        <p:commandButton value="PrimeFaces" actionListener="#{showcaseView.add}" update="txt txts" process="@form"/>
+                        <h:commandButton value="JSF Impl" actionListener="#{showcaseView.add}">
+                            <f:ajax render="txt txts" execute="@form"/>
+                        </h:commandButton>
+                    </h:panelGrid>
+
+                    <p:dataList id="txts" var="text" value="#{showcaseView.texts}" type="inset">
+                        <f:facet name="header">Values</f:facet>
+                        #{text}
+                    </p:dataList>
+
+                </h:form>
+            </pm:content>
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

@@ -1,0 +1,66 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile"
+	contentType="text/html">
+
+    <pm:page title="Contacts">
+
+        <!-- Main View -->
+        <pm:view id="main">
+            <pm:header title="Contacts">
+                <f:facet name="right">
+                    <h:form>
+                        <p:commandButton value="New" icon="plus" action="#{contactsView.prepareNewContact}" update="newContactForm"/>
+                    </h:form>
+                </f:facet>
+            </pm:header>
+
+            <pm:content>
+                <h:form id="listContactsForm">
+                    <p:dataList id="contactsList" value="#{contactsView.contacts}" var="contact">
+                        <p:column>
+                            <p:graphicImage value="/images/pf-logo.png" />
+                            <h3>
+                                <p:commandLink value="#{contact.firstname} #{contact.surname}" action="pm:new" update="newContactForm">
+                                    <f:setPropertyActionListener value="#{contact}" target="#{contactsView.contact}" />
+                                </p:commandLink>
+                            </h3>
+                            <p><a href="tel:#{contact.phone}">Call</a></p>
+                        </p:column>
+                    </p:dataList>
+                </h:form>
+            </pm:content>
+        </pm:view>
+
+        <!-- New Contact -->
+        <pm:view id="new">
+            <pm:header title="New Contact">
+                <f:facet name="left"><p:button value="Back" icon="back" href="#main?reverse=true"/></f:facet>
+            </pm:header>
+
+            <pm:content>
+                <h:form id="newContactForm">
+                    <p:inputText id="name" value="#{contactsView.contact.firstname}" label="Name:"/>
+
+                    <p:inputText id="surname" value="#{contactsView.contact.surname}" label="Surname:"/>
+
+                    <p:inputText id="age" value="#{contactsView.contact.age}" type="number" label="Age:"/>
+
+                    <p:inputText id="phone" value="#{contactsView.contact.phone}" label="Phone:"/>
+
+                    <p:inputText id="mail" value="#{contactsView.contact.mail}" label="Email:"/>
+
+                    <p:inputTextarea id="address" value="#{contactsView.contact.address}" label="Address:"/>
+                    
+                    <p:commandButton value="Save" action="#{contactsView.saveContact}" update="listContactsForm" icon="check" />
+                </h:form>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

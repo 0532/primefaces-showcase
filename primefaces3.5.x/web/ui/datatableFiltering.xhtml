@@ -1,0 +1,198 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="../templates/ui.xhtml">
+
+    <ui:define name="head">
+        <style type="text/css">
+            .ui-datatable .ui-datatable-header {
+                text-align: right !important;
+            }
+        </style>
+    </ui:define>
+
+    <ui:define name="content">
+        <h1 class="title ui-widget-header ui-corner-all">DataTable - Filtering</h1>
+        <div class="entry">
+            <p>Datatable provides column based and global data filtering feature. There are four different match modes, "startsWith"(default), "endsWith",
+            "contains" and "exact". In addition using filterOptions, predefined filter values can be displayed.</p>
+
+            <h:form>
+                
+                <p:dataTable var="car" value="#{tableBean.carsSmall}" widgetVar="carsTable"
+                             emptyMessage="No cars found with given criteria">
+
+                    <f:facet name="header">
+                        <p:outputPanel>
+                            <h:outputText value="Search all fields:" />
+                            <p:inputText id="globalFilter" onkeyup="carsTable.filter()" style="width:150px" />
+                        </p:outputPanel>
+                    </f:facet>
+
+                    <p:column filterBy="#{car.model}" headerText="Model" footerText="contains" filterMatchMode="contains">
+                        <h:outputText value="#{car.model}" />
+                    </p:column>
+
+                    <p:column filterBy="#{car.year}" headerText="Year" footerText="startsWith">
+                        <h:outputText value="#{car.year}" />
+                    </p:column>
+
+                    <p:column filterBy="#{car.manufacturer}" headerText="Manufacturer" footerText="exact" filterOptions="#{tableBean.manufacturerOptions}" filterMatchMode="exact">
+                        <h:outputText value="#{car.manufacturer}" />
+                    </p:column>
+
+                    <p:column filterBy="#{car.color}" headerText="Color" footerText="endsWith" >
+                        <h:outputText value="#{car.color}" />
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+
+            <h3>Source</h3>
+            <p:tabView>
+                <p:tab title="datatableFiltering.xhtml">
+                    <pre name="code" class="xml">
+&lt;h:form&gt;
+
+    &lt;p:dataTable var="car" value="\#{tableBean.carsSmall}" widgetVar="carsTable" 
+            emptyMessage="No cars found with given criteria"&gt;
+
+         &lt;f:facet name="header"&gt;
+            &lt;p:outputPanel&gt;
+                &lt;h:outputText value="Search all fields:" /&gt;
+                &lt;p:inputText id="globalFilter" onkeyup="carsTable.filter()" style="width:150px" /&gt;
+            &lt;/p:outputPanel&gt;
+        &lt;/f:facet&gt;
+
+        &lt;p:column filterBy="\#{car.model}" 
+                headerText="Model" footerText="contains"
+                filterMatchMode="contains"&gt;
+            &lt;h:outputText value="\#{car.model}" /&gt;
+        &lt;/p:column&gt;
+
+        &lt;p:column filterBy="\#{car.year}"
+                headerText="Year" footerText="startsWith"&gt;
+            &lt;h:outputText value="\#{car.year}" /&gt;
+        &lt;/p:column&gt;
+
+        &lt;p:column filterBy="\#{car.manufacturer}" 
+                headerText="Manufacturer" footerText="exact"
+                filterOptions="\#{tableBean.manufacturerOptions}"
+                filterMatchMode="exact"&gt;
+            &lt;h:outputText value="\#{car.manufacturer}" /&gt;
+        &lt;/p:column&gt;
+
+        &lt;p:column filterBy="\#{car.color}"
+                headerText="Color" footerText="endsWith" filterMatchMode="endsWith"&gt;
+            &lt;h:outputText value="\#{car.color}" /&gt;
+        &lt;/p:column&gt;
+    &lt;/p:dataTable&gt;
+    
+&lt;/h:form&gt;
+                    </pre>
+                </p:tab>
+
+                <p:tab title="TableBean.java">
+                    <pre name="code" class="java">
+package org.primefaces.examples.view;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import org.primefaces.examples.domain.Car;
+
+public class TableBean implements Serializable {
+
+	static {
+		colors = new String[10];
+		colors[0] = "Black";
+		colors[1] = "White";
+		colors[2] = "Green";
+		colors[3] = "Red";
+		colors[4] = "Blue";
+		colors[5] = "Orange";
+		colors[6] = "Silver";
+		colors[7] = "Yellow";
+		colors[8] = "Brown";
+		colors[9] = "Maroon";
+
+		manufacturers = new String[10];
+		manufacturers[0] = "Mercedes";
+		manufacturers[1] = "BMW";
+		manufacturers[2] = "Volvo";
+		manufacturers[3] = "Audi";
+		manufacturers[4] = "Renault";
+		manufacturers[5] = "Opel";
+		manufacturers[6] = "Volkswagen";
+		manufacturers[7] = "Chrysler";
+		manufacturers[8] = "Ferrari";
+		manufacturers[9] = "Ford";
+	}
+
+    private final static String[] colors;
+
+	private final static String[] manufacturers;
+
+    private SelectItem[] manufacturerOptions;
+
+	private List&lt;Car&gt; carsSmall;
+
+	public TableBean() {
+		carsSmall = new ArrayList&lt;Car&gt;();
+
+		populateRandomCars(carsSmall, 9);
+        manufacturerOptions = createFilterOptions(manufacturers);
+	}
+
+	private void populateRandomCars(List&lt;Car&gt; list, int size) {
+		for(int i = 0 ; i &lt; size ; i++)
+			list.add(new Car(getRandomModel(), getRandomYear(), getRandomManufacturer(), getRandomColor()));
+	}
+
+	public List&lt;Car&gt; getCarsSmall() {
+		return carsSmall;
+	}
+
+	private int getRandomYear() {
+		return (int) (Math.random() * 50 + 1960);
+	}
+
+	private String getRandomColor() {
+		return colors[(int) (Math.random() * 10)];
+	}
+
+	private String getRandomManufacturer() {
+		return manufacturers[(int) (Math.random() * 10)];
+	}
+
+	private String getRandomModel() {
+		return UUID.randomUUID().toString().substring(0, 8);
+	}
+
+    private SelectItem[] createFilterOptions(String[] data)  {
+        SelectItem[] options = new SelectItem[data.length + 1];
+
+        options[0] = new SelectItem("", "Select");
+        for(int i = 0; i &lt; data.length; i++) {
+            options[i + 1] = new SelectItem(data[i], data[i]);
+        }
+
+        return options;
+    }
+
+    public SelectItem[] getManufacturerOptions() {
+        return manufacturerOptions;
+    }
+}
+                    </pre>
+                </p:tab>
+            </p:tabView>
+
+        </div>
+
+    </ui:define>
+</ui:composition>

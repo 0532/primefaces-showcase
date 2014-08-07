@@ -1,0 +1,35 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile"
+	contentType="text/html">
+
+    <pm:page title="TwitFaces">
+
+        <!-- Main View -->
+        <pm:view id="main" swatch="b">
+            <pm:header title="TwitFaces">
+            </pm:header>
+
+            <pm:content>
+                <h:form id="twitForm">
+                    <p:inputText value="#{twitterController.username}" label="Account: "/>
+
+                    <p:separator />
+
+                    <p:commandButton value="Get Tweets" icon="refresh" update="tweetList"
+                                      actionListener="#{twitterController.loadTweets}" />
+
+                    <p:dataList id="tweetList" value="#{twitterController.tweets}" var="tweet" style="margin-top:1em">
+                        #{tweet}
+                    </p:dataList>
+                </h:form>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+    
+</f:view>

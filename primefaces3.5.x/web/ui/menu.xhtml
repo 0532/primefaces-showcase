@@ -1,0 +1,222 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../templates/ui.xhtml">
+
+	<ui:define name="content">
+		<h1 class="title ui-widget-header ui-corner-all">Menu</h1>
+		<div class="entry">
+			<p>Menu is a highly customizable navigation/command component that supports dynamic and static positioning as well as
+			tiered display.</p>
+			
+			<h:form>
+			
+				<p:growl id="messages"/>
+                
+				<h3 class="lab">Tiered Menu</h3>
+                <p:menu type="tiered" style="width:180px">
+					<p:submenu label="Ajax Menuitems" icon="ui-icon-refresh">
+						<p:menuitem value="Save" actionListener="#{buttonBean.save}" update="messages" icon="ui-icon-disk" />
+						<p:menuitem value="Update" actionListener="#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w" />
+					</p:submenu>
+					<p:submenu label="Non-Ajax Menuitem" icon="ui-icon-newwin">
+						<p:menuitem value="Delete" actionListener="#{buttonBean.delete}" update="messages" ajax="false" icon="ui-icon-close"/>
+					</p:submenu>
+                    <p:separator />
+					<p:submenu label="Navigations" icon="ui-icon-extlink">
+						<p:submenu label="Prime Links">
+							<p:menuitem value="Prime" url="http://www.prime.com.tr" />
+							<p:menuitem value="PrimeFaces" url="http://www.primefaces.org" />
+						</p:submenu>
+                        <p:menuitem value="Mobile" url="/mobile" />
+					</p:submenu>
+				</p:menu>
+                
+                <h3 class="lab">Sliding Menu</h3>
+                <p:menu type="sliding" style="width:180px; height: 130px;">
+					<p:submenu label="Ajax Menuitems" icon="ui-icon-refresh">
+						<p:menuitem value="Save" actionListener="#{buttonBean.save}" update="messages" icon="ui-icon-disk" />
+						<p:menuitem value="Update" actionListener="#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w" />
+					</p:submenu>
+					<p:submenu label="Non-Ajax Menuitem" icon="ui-icon-newwin">
+						<p:menuitem value="Delete" actionListener="#{buttonBean.delete}" update="messages" ajax="false" icon="ui-icon-close"/>
+					</p:submenu>
+					<p:submenu label="Navigations" icon="ui-icon-extlink">
+						<p:submenu label="Prime Links">
+							<p:menuitem value="Prime" url="http://www.prime.com.tr" />
+							<p:menuitem value="PrimeFaces" url="http://www.primefaces.org" />
+						</p:submenu>
+                        <p:menuitem value="Mobile" url="/mobile" />
+					</p:submenu>
+				</p:menu>
+                
+				<h3>Regular Menu</h3>
+				<p:menu>
+					<p:submenu label="Ajax Menuitems">
+						<p:menuitem value="Save" actionListener="#{buttonBean.save}" update="messages" icon="ui-icon-disk"/>
+						<p:menuitem value="Update" actionListener="#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+					</p:submenu>
+					<p:submenu label="Non-Ajax Menuitem">
+						<p:menuitem value="Delete" actionListener="#{buttonBean.delete}" update="messages" ajax="false" icon="ui-icon-close"/>
+					</p:submenu>
+					<p:submenu label="Navigations">
+						<p:menuitem value="Home" url="http://www.primefaces.org" icon="ui-icon-home"/>
+						<p:menuitem value="TouchFaces" url="/touch" icon="ui-icon-star"/>
+					</p:submenu>
+				</p:menu>
+
+                <h3>Programmatic Menu</h3>
+				<p:menu model="#{menuBean.model}"/>
+
+                <h3>Dynamic Position</h3>
+				<p:commandButton id="dynaButton" value="Show" type="button"/>
+                <p:menu position="dynamic" trigger="dynaButton" my="left top" at="left bottom" style="z-index:10">
+					<p:submenu label="Ajax Menuitems">
+						<p:menuitem value="Save" actionListener="#{buttonBean.save}" update="messages" icon="ui-icon-disk"/>
+						<p:menuitem value="Update" actionListener="#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+					</p:submenu>
+					<p:submenu label="Non-Ajax Menuitem">
+						<p:menuitem value="Delete" actionListener="#{buttonBean.delete}" update="messages" ajax="false" icon="ui-icon-close"/>
+					</p:submenu>
+					<p:submenu label="Navigations">
+						<p:menuitem value="Home" url="http://www.primefaces.org" icon="ui-icon-home"/>
+						<p:menuitem value="TouchFaces" url="/touch" icon="ui-icon-star"/>
+					</p:submenu>
+				</p:menu>
+
+			</h:form>
+			
+			<h3>Source</h3>
+			<p:tabView>
+				<p:tab title="menu.xhtml">
+            <pre name="code" class="xml">
+&lt;h:form&gt;
+
+    &lt;p:growl id="messages"/&gt;
+
+    &lt;h3&gt;Tiered Menu&lt;/h3&gt;
+    &lt;p:menu type="tiered" style="width:180px"&gt;
+        &lt;p:submenu label="Ajax Menuitems" icon="ui-icon-refresh"&gt;
+            &lt;p:menuitem value="Save" actionListener="\#{buttonBean.save}" update="messages" icon="ui-icon-disk" /&gt;
+            &lt;p:menuitem value="Update" actionListener="\#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w" /&gt;
+        &lt;/p:submenu&gt;
+        &lt;p:submenu label="Non-Ajax Menuitem" icon="ui-icon-newwin"&gt;
+            &lt;p:menuitem value="Delete" actionListener="\#{buttonBean.delete}" update="messages" ajax="false" icon="ui-icon-close"/&gt;
+        &lt;/p:submenu&gt;
+        &lt;p:separator /&gt;
+        &lt;p:submenu label="Navigations" icon="ui-icon-extlink"&gt;
+            &lt;p:submenu label="Prime Links"&gt;
+                &lt;p:menuitem value="Prime" url="http://www.prime.com.tr" /&gt;
+                &lt;p:menuitem value="PrimeFaces" url="http://www.primefaces.org" /&gt;
+            &lt;/p:submenu&gt;
+            &lt;p:menuitem value="TouchFaces" url="\#{request.contextPath}/touch" /&gt;
+        &lt;/p:submenu&gt;
+    &lt;/p:menu&gt;
+
+    &lt;h3&gt;Sliding Menu&lt;/h3&gt;
+    &lt;p:menu type="sliding" style="width:200px; height: 130px;"&gt;
+        &lt;p:submenu label="Ajax Menuitems" icon="ui-icon-refresh"&gt;
+            &lt;p:menuitem value="Save" actionListener="\#{buttonBean.save}" update="messages" icon="ui-icon-disk" /&gt;
+            &lt;p:menuitem value="Update" actionListener="\#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/&gt;
+        &lt;/p:submenu&gt;
+        &lt;p:submenu label="Non-Ajax Menuitem" icon="ui-icon-newwin"&gt;
+            &lt;p:menuitem value="Delete" actionListener="\#{buttonBean.delete}" update="messages" ajax="false" icon="ui-icon-close"/&gt;
+        &lt;/p:submenu&gt;
+        &lt;p:submenu label="Navigations" icon="ui-icon-extlink"&gt;
+            &lt;p:submenu label="Prime Links"&gt;
+                &lt;p:menuitem value="Prime" url="http://www.prime.com.tr" /&gt;
+                &lt;p:menuitem value="PrimeFaces" url="http://www.primefaces.org" /&gt;
+            &lt;/p:submenu&gt;
+            &lt;p:menuitem value="TouchFaces" url="\#{request.contextPath}/touch" /&gt;
+        &lt;/p:submenu&gt;
+    &lt;/p:menu&gt;
+
+    &lt;h3&gt;Regular Menu&lt;/h3&gt;
+    &lt;p:menu&gt;
+        &lt;p:submenu label="Ajax Menuitems"&gt;
+            &lt;p:menuitem value="Save" actionListener="\#{buttonBean.save}" update="messages" icon="ui-icon-disk"/&gt;
+            &lt;p:menuitem value="Update" actionListener="\#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/&gt;
+        &lt;/p:submenu&gt;
+        &lt;p:submenu label="Non-Ajax Menuitem"&gt;
+            &lt;p:menuitem value="Delete" actionListener="\#{buttonBean.delete}" update="messages" ajax="false" icon="ui-icon-close"/&gt;
+        &lt;/p:submenu&gt;
+        &lt;p:submenu label="Navigations"&gt;
+            &lt;p:menuitem value="Home" url="http://www.primefaces.org" icon="ui-icon-home"/&gt;
+            &lt;p:menuitem value="TouchFaces" url="\#{request.contextPath}/touch" icon="ui-icon-star"/&gt;
+        &lt;/p:submenu&gt;
+    &lt;/p:menu&gt;
+
+    &lt;h3&gt;Programmatic Menu&lt;/h3&gt;
+    &lt;p:menu model="\#{menuBean.model}"/&gt;
+
+    &lt;h3&gt;Dynamic Position&lt;/h3&gt;
+    &lt;p:commandButton id="dynaButton" value="Show" type="button"/&gt;
+    &lt;p:menu position="dynamic" trigger="dynaButton" my="left top" at="left bottom"&gt;
+        &lt;p:submenu label="Ajax Menuitems"&gt;
+            &lt;p:menuitem value="Save" actionListener="\#{buttonBean.save}" update="messages" icon="ui-icon-disk"/&gt;
+            &lt;p:menuitem value="Update" actionListener="\#{buttonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/&gt;
+        &lt;/p:submenu&gt;
+        &lt;p:submenu label="Non-Ajax Menuitem"&gt;
+            &lt;p:menuitem value="Delete" actionListener="\#{buttonBean.delete}" update="messages" ajax="false" icon="ui-icon-close"/&gt;
+        &lt;/p:submenu&gt;
+        &lt;p:submenu label="Navigations"&gt;
+            &lt;p:menuitem value="Home" url="http://www.primefaces.org" icon="ui-icon-home"/&gt;
+            &lt;p:menuitem value="TouchFaces" url="\#{request.contextPath}/touch" icon="ui-icon-star"/&gt;
+        &lt;/p:submenu&gt;
+    &lt;/p:menu&gt;
+
+&lt;/h:form&gt;
+			</pre>
+				</p:tab>
+				
+				<p:tab title="MenuBean.java">
+<pre name="code" class="java">
+public class MenuBean {
+
+	private MenuModel model;
+
+	public MenuBean() {
+		model = new DefaultMenuModel();
+		
+		//First submenu
+		Submenu submenu = new Submenu();
+		submenu.setLabel("Dynamic Submenu 1");
+		
+		MenuItem item = new MenuItem();
+		item.setValue("Dynamic Menuitem 1.1");
+		item.setUrl("#");
+		submenu.getChildren().add(item);
+		
+		model.addSubmenu(submenu);
+		
+		//Second submenu
+		submenu = new Submenu();
+		submenu.setLabel("Dynamic Submenu 2");
+		
+		item = new MenuItem();
+		item.setValue("Dynamic Menuitem 2.1");
+		item.setUrl("#");
+		submenu.getChildren().add(item);
+		
+		item = new MenuItem();
+		item.setValue("Dynamic Menuitem 2.2");
+		item.setUrl("#");
+		submenu.getChildren().add(item);
+		
+		model.addSubmenu(submenu);
+	}
+	
+	public MenuModel getModel() {
+		return model;
+	}	
+}
+			</pre>
+				</p:tab>
+			</p:tabView>
+      	</div>
+ 
+</ui:define>
+</ui:composition>
+				
