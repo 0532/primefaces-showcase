@@ -1,3 +1,3 @@
-##primefaces-showcase
+###primefaces-showcase
 ===================
 primefaces-demo
