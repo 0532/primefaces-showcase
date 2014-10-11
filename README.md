@@ -1,6 +1,6 @@
 ###primefaces-showcase
 ===================
-primefaces-demo
+**primefaces-demo的源码，可运行版**
 
 ###一个设置分支（branch）的流程 
 
