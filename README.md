@@ -1,8 +1,8 @@
 ###primefaces-showcase
 ===================
-**primefaces-demo的源码，可运行版**
+Please visit [Git Hub](https://github.com/0532/primefaces-showcase/releases/tag/primefaces-5.0) to download a precompiled binary
 
-一个创建分支（branch）的流程 
+**创建分支（branch）的流程** 
 
 参考流程
 
