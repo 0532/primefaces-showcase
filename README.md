@@ -1,5 +1,5 @@
 ##primefaces-showcase
-Please visit [Github Releases](https://github.com/0532/primefaces-showcase/releases/tag/primefaces-5.0) to download sources
+Please visit [Github Releases](https://github.com/0532/primefaces-showcase/releases) to download sources
 
 **创建分支（branch）的流程** 
 
