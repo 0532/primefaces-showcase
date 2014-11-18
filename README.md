@@ -25,3 +25,5 @@ Prinefaces [SVN](http://primefaces.googlecode.com/svn/examples/trunk/showcase/) 
 翻译完成之后，首先push到你的库，然后登录GitHub，在你的库的首页可以看到一个 `pull request` 按钮，点击它，填写一些说明信息，然后提交即可。
 
 或者先在 网页上设置好分支，然后，使用github for windows 在提交代码的时候选择要提交的分支即可
+
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/0532/primefaces-showcase?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
