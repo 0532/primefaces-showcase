@@ -3,7 +3,7 @@
 
 Please visit [Github Releases](https://github.com/0532/primefaces-showcase/releases) to download the source 
 
-Prinefaces [SVN](http://primefaces.googlecode.com/svn/examples/trunk/showcase/) 官方源地址
+Prinefaces [SVN](http://primefaces.googlecode.com/svn/examples/trunk/showcase/) Official source address
 
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/0532/primefaces-showcase?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
