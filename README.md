@@ -7,6 +7,8 @@ Prinefaces [SVN](http://primefaces.googlecode.com/svn/examples/trunk/showcase/) 
 
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/0532/primefaces-showcase?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+
 [![docs examples](https://sourcegraph.com/api/repos/github.com/0532/primefaces-showcase/.badges/docs-examples.png)](https://sourcegraph.com/github.com/0532/primefaces-showcase)
 [![status](https://sourcegraph.com/api/repos/github.com/0532/primefaces-showcase/.badges/status.png)](https://sourcegraph.com/github.com/0532/primefaces-showcase)
 [![library users](https://sourcegraph.com/api/repos/github.com/0532/primefaces-showcase/.badges/library-users.png)](https://sourcegraph.com/github.com/0532/primefaces-showcase)
